@@ -4,7 +4,8 @@ public class MessagePrinter {
 
 	private MessageProducer producer;
 
-	MessagePrinter() {}
+	MessagePrinter() {
+	}
 
 	public MessagePrinter(MessageProducer producer) {
 		this.producer = producer;
@@ -13,6 +14,7 @@ public class MessagePrinter {
 	public MessageProducer getProducer() {
 		return producer;
 	}
+
 	public void setProducer(MessageProducer producer) {
 		this.producer = producer;
 	}
