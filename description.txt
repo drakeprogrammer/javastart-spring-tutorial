@@ -1,0 +1,5 @@
+Spring Framework
+	- Wstrzykiwanie zależności i konfiguracja XML - dependency-injection-by-xml
+	- Wstrzykiwanie zależności konfiguracja Java - dependency-injection-java-configuration
+	- Komponenty i automatyczne wiązania - - components-and-autowired
+	- Wstrzykiwanie przez pole, setter i konstruktor -
