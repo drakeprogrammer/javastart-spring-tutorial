@@ -1,25 +1,33 @@
 package pl.drakeprogrammer.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MessagePrinter {
 
-	private MessageProducer producer;
+	private MessageProducer messageProducer;
+	private MessageDecorator messageDecorator;
 
-	MessagePrinter() {
+	@Autowired
+	public MessagePrinter(MessageProducer messageProducer) {
+		this.messageProducer = messageProducer;
 	}
 
-	public MessagePrinter(MessageProducer producer) {
-		this.producer = producer;
-	}
-
-	public MessageProducer getProducer() {
-		return producer;
-	}
-
-	public void setProducer(MessageProducer producer) {
-		this.producer = producer;
+	/**
+	 * When @Component annotation will be remove from UpperCaseMessageDecorator then class won't be injected.
+	 * We should use injecting by setter only when we want to use dependency as optional (in fact and reality NEVER do this)!
+	 *
+	 * @param messageDecorator
+	 */
+	@Autowired(required = false)
+	public void setMessageDecorator(MessageDecorator messageDecorator) {
+		this.messageDecorator = messageDecorator;
 	}
 
 	public void print() {
-		System.out.println(producer.getMessage());
+		String message = messageProducer.getMessage();
+		message = (messageDecorator != null) ? messageDecorator.decorate(message) : message;
+		System.out.println(message);
 	}
 }
