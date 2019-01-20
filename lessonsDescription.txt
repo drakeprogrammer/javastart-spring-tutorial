@@ -8,3 +8,6 @@ Spring Framework
 		- resolve-conflicts-us-qualifiers-with-string-arguments
 		- resolve-conflicts-us-qualifiers-with-defined-qualifier
 		- resolve-conflicts-us-qualifiers-with-enum-producer
+	- Producenci i pliki properties - producers-and-file-properties
+		- producers-and-file-properties-with-value-annotation
+		- producers-and-file-properties-with-environment-class

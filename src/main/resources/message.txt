@@ -1,1 +1,1 @@
-Qualifiers conflicts resolve FILE FROM RESOURCE directory
+Qualifiers conflicts resolve FILE FROM RESOURCE directory by appConfigProperties

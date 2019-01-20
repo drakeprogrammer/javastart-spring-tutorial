@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerType;
@@ -15,6 +16,9 @@ import pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerType;
 @Component
 @MessageProducerType(type = ProducerType.FILE_MESSAGE_PRODUCER)
 public class FileMessageProducer implements MessageProducer {
+
+	@Value("${messageFileProperty}")
+	private String fileName;
 
 	@Override
 	public String getMessage() {
@@ -24,7 +28,7 @@ public class FileMessageProducer implements MessageProducer {
 
 	private List<String> readLines() {
 		try {
-			Path path = new File(getClass().getResource("/message.txt").toURI()).toPath();
+			Path path = new File(getClass().getResource(fileName).toURI()).toPath();
 			return Files.readAllLines(path);
 		} catch (URISyntaxException | IOException e) {
 			e.printStackTrace();
