@@ -1,7 +1,10 @@
-package pl.drakeprogrammer.beans;
+package pl.drakeprogrammer.beans.printers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import pl.drakeprogrammer.beans.producers.MessageProducer;
+import pl.drakeprogrammer.beans.decorators.MessageDecorator;
 
 @Component
 public class MessagePrinter {

@@ -1,8 +1,10 @@
-package pl.drakeprogrammer.beans;
+package pl.drakeprogrammer.beans.producers;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
+@Primary
 public class SimpleMessageProducer implements MessageProducer {
 
 	@Override

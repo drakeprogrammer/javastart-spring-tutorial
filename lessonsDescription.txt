@@ -3,3 +3,8 @@ Spring Framework
 	- Wstrzykiwanie zależności konfiguracja Java - dependency-injection-java-configuration
 	- Komponenty i automatyczne wiązania - components-and-autowired
 	- Wstrzykiwanie przez pole, setter i konstruktor - dependency-injection-by-filed-setter-and-constructor
+	- Rozwiązywanie konfliktów - kwalifikatory - resolve-conflicts-us-qualifiers
+		- resolve-conflicts-us-qualifiers-primary-annotation
+		- resolve-conflicts-us-qualifiers-with-string-arguments
+		- resolve-conflicts-us-qualifiers-with-defined-qualifier
+		- resolve-conflicts-us-qualifiers-with-enum-producer
