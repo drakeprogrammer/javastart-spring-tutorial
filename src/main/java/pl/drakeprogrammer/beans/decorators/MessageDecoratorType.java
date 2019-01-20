@@ -10,5 +10,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface UpperCaseMessage {
+public @interface MessageDecoratorType {
+
+	DecoratorType type();
+
+	enum DecoratorType {
+		LOWER_CASE_MESSAGE_DECORATOR,
+		UPPER_CASE_MESSAGE_DECORATOR
+	}
 }

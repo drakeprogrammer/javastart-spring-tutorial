@@ -10,5 +10,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.TYPE, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface SimpleMessage {
+public @interface MessageProducerType {
+
+	ProducerType type();
+
+	enum ProducerType {
+		SIMPLE_MESSAGE_PRODUCER,
+		FILE_MESSAGE_PRODUCER
+	}
+
 }

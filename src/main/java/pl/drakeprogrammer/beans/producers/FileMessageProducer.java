@@ -10,8 +10,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerType;
+
 @Component
-@FileMessage
+@MessageProducerType(type = ProducerType.FILE_MESSAGE_PRODUCER)
 public class FileMessageProducer implements MessageProducer {
 
 	@Override
