@@ -1,1 +1,1 @@
-Qualifiers conflicts resolve
+Qualifiers conflicts resolve FILE FROM RESOURCE directory

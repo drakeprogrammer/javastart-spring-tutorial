@@ -1,6 +1,7 @@
 package pl.drakeprogrammer.beans.printers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import pl.drakeprogrammer.beans.producers.MessageProducer;
@@ -13,7 +14,7 @@ public class MessagePrinter {
 	private MessageDecorator messageDecorator;
 
 	@Autowired
-	public MessagePrinter(MessageProducer messageProducer) {
+	public MessagePrinter(@Qualifier("fileMessageProducer") MessageProducer messageProducer) {
 		this.messageProducer = messageProducer;
 	}
 
@@ -24,7 +25,7 @@ public class MessagePrinter {
 	 * @param messageDecorator
 	 */
 	@Autowired(required = false)
-	public void setMessageDecorator(MessageDecorator messageDecorator) {
+	public void setMessageDecorator(@Qualifier("lowerCaseMessageDecorator") MessageDecorator messageDecorator) {
 		this.messageDecorator = messageDecorator;
 	}
 
