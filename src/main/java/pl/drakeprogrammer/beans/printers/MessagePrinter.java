@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import pl.drakeprogrammer.beans.decorators.UpperCaseMessage;
+import pl.drakeprogrammer.beans.producers.FileMessage;
 import pl.drakeprogrammer.beans.producers.MessageProducer;
 import pl.drakeprogrammer.beans.decorators.MessageDecorator;
+import pl.drakeprogrammer.beans.producers.SimpleMessage;
 
 @Component
 public class MessagePrinter {
@@ -14,7 +17,7 @@ public class MessagePrinter {
 	private MessageDecorator messageDecorator;
 
 	@Autowired
-	public MessagePrinter(@Qualifier("fileMessageProducer") MessageProducer messageProducer) {
+	public MessagePrinter(@SimpleMessage MessageProducer messageProducer) {
 		this.messageProducer = messageProducer;
 	}
 
@@ -25,7 +28,7 @@ public class MessagePrinter {
 	 * @param messageDecorator
 	 */
 	@Autowired(required = false)
-	public void setMessageDecorator(@Qualifier("lowerCaseMessageDecorator") MessageDecorator messageDecorator) {
+	public void setMessageDecorator(@UpperCaseMessage MessageDecorator messageDecorator) {
 		this.messageDecorator = messageDecorator;
 	}
 

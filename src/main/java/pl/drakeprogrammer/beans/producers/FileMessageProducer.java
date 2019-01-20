@@ -8,11 +8,10 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("fileMessageProducer")
+@FileMessage
 public class FileMessageProducer implements MessageProducer {
 
 	@Override

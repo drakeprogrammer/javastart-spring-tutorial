@@ -1,10 +1,9 @@
 package pl.drakeprogrammer.beans.producers;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("simpleMessageProducer")
+@SimpleMessage
 public class SimpleMessageProducer implements MessageProducer {
 
 	@Override
