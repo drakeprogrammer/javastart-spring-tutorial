@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Qualifier
 public @interface MessageProducerType {
 
-	ProducerType type();
+	ProducerType value();
 
 	enum ProducerType {
 		SIMPLE_MESSAGE_PRODUCER,

@@ -8,7 +8,6 @@ import pl.drakeprogrammer.beans.decorators.MessageDecoratorType;
 import pl.drakeprogrammer.beans.producers.MessageProducer;
 import pl.drakeprogrammer.beans.producers.MessageProducerType;
 
-import static pl.drakeprogrammer.beans.decorators.MessageDecoratorType.DecoratorType.LOWER_CASE_MESSAGE_DECORATOR;
 import static pl.drakeprogrammer.beans.decorators.MessageDecoratorType.DecoratorType.UPPER_CASE_MESSAGE_DECORATOR;
 import static pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerType.FILE_MESSAGE_PRODUCER;
 
@@ -19,7 +18,7 @@ public class MessagePrinter {
 	private MessageDecorator messageDecorator;
 
 	@Autowired
-	public MessagePrinter(@MessageProducerType(type = FILE_MESSAGE_PRODUCER) MessageProducer messageProducer) {
+	public MessagePrinter(@MessageProducerType(FILE_MESSAGE_PRODUCER) MessageProducer messageProducer) {
 		this.messageProducer = messageProducer;
 	}
 
@@ -31,7 +30,7 @@ public class MessagePrinter {
 	 */
 	@Autowired(required = false)
 	public void setMessageDecorator(
-			@MessageDecoratorType(type = UPPER_CASE_MESSAGE_DECORATOR) MessageDecorator messageDecorator) {
+			@MessageDecoratorType(UPPER_CASE_MESSAGE_DECORATOR) MessageDecorator messageDecorator) {
 		this.messageDecorator = messageDecorator;
 	}
 

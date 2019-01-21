@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Qualifier
 public @interface MessageDecoratorType {
 
-	DecoratorType type();
+	DecoratorType value();
 
 	enum DecoratorType {
 		LOWER_CASE_MESSAGE_DECORATOR,

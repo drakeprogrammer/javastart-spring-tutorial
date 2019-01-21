@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import static pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerType.SIMPLE_MESSAGE_PRODUCER;
 
 @Component
-@MessageProducerType(type = SIMPLE_MESSAGE_PRODUCER)
+@MessageProducerType(SIMPLE_MESSAGE_PRODUCER)
 public class SimpleMessageProducer implements MessageProducer {
 
 	@Autowired

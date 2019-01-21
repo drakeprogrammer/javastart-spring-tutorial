@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import static pl.drakeprogrammer.beans.decorators.MessageDecoratorType.DecoratorType.LOWER_CASE_MESSAGE_DECORATOR;
 
 @Component
-@MessageDecoratorType(type = LOWER_CASE_MESSAGE_DECORATOR)
+@MessageDecoratorType(LOWER_CASE_MESSAGE_DECORATOR)
 public class LowerCaseMessageDecorator implements MessageDecorator {
 
 	@Override
