@@ -9,8 +9,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +16,6 @@ import static pl.drakeprogrammer.beans.producers.MessageProducerType.ProducerTyp
 
 @Component
 @MessageProducerType(FILE_MESSAGE_PRODUCER)
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class FileMessageProducer implements MessageProducer {
 
 	@Autowired

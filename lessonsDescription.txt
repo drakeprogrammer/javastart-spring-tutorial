@@ -11,3 +11,4 @@ Spring Framework
 	- Producenci i pliki properties - producers-and-file-properties
 		- producers-and-file-properties-with-value-annotation
 		- producers-and-file-properties-with-environment-class
+	- Zasięgi singleton i prototype - singleton-and-prototype-scopes
