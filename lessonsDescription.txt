@@ -12,3 +12,18 @@ Spring Framework
 		- producers-and-file-properties-with-value-annotation
 		- producers-and-file-properties-with-environment-class
 	- Zasięgi singleton i prototype - singleton-and-prototype-scopes
+	- Profile - profiles
+		- VM options:
+			- -Dspring.profiles.default=dev (optional not preferred)
+			- -Dspring.profiles.active=dev
+			- -Dspring.profiles.active=prod
+
+		- maven exec plugin -> mvn clean compile exec:java -Dspring.profiles.active=dev
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<mainClass>pl.javastart.SpringDiApplication</mainClass>
+				</configuration>
+			</plugin>

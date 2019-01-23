@@ -20,13 +20,19 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring-framework.version}</version>
 		</dependency>
-
-		<!--when we want to use @Inject annotation from CDI instead @Autowired-->
-		<!--<dependency>-->
-			<!--<groupId>javax.enterprise</groupId>-->
-			<!--<artifactId>cdi-api</artifactId>-->
-			<!--<version>1.2</version>-->
-		<!--</dependency>-->
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<mainClass>pl.drakeprogrammer.SpringDiApplication</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
