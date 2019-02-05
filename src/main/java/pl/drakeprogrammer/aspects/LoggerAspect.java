@@ -10,6 +10,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
+import pl.drakeprogrammer.model.Book;
+
 @Aspect
 @Component
 public class LoggerAspect {
@@ -30,8 +32,13 @@ public class LoggerAspect {
 		System.out.println("Method finished with error ");
 	}
 
-	@AfterReturning("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
-	public void logSuccess() {
-		System.out.println("Method successfully returned");
+	@AfterReturning(value = "execution(* pl.drakeprogrammer.repository.BookRepository.get(..)) && args(isbn)",
+					returning = "book")
+	public void logSuccess(JoinPoint joinPoint, String isbn, Book book) {
+		if (book != null) {
+			// if you want to use JoinPoint object this object must be first argument in method signature
+			System.out.println(joinPoint.getSignature());
+			System.out.printf("Method get() successfully returned value %s for isbn %s\n", book, isbn);
+		}
 	}
 }

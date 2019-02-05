@@ -1,5 +1,7 @@
 package pl.drakeprogrammer.model;
 
+import java.util.StringJoiner;
+
 public class Book {
 
 	private String isbn;
@@ -34,5 +36,11 @@ public class Book {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	@Override
+	public String toString() {
+		return new StringJoiner(", ", Book.class.getSimpleName() + "[", "]").add("isbn='" + isbn + "'")
+				.add("title='" + title + "'").add("author='" + author + "'").toString();
 	}
 }

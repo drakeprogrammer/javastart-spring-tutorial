@@ -32,3 +32,4 @@ Spring AOP
 	- Programowanie aspektowe - aspect-programming
 	- Parametry i wyrażenia w AOP
 		- parametry porad - advice-parameters
+		- przechwytywanie zwracanych obiektów - catch-returning-objects
