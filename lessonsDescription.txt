@@ -27,3 +27,6 @@ Spring Framework
 					<mainClass>pl.javastart.SpringDiApplication</mainClass>
 				</configuration>
 			</plugin>
+------------------------------------------------------------------------------------------------------------------------
+Spring AOP
+	- Programowanie aspektowe - aspect-programming
