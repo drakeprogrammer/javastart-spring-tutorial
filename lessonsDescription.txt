@@ -30,3 +30,5 @@ Spring Framework
 ------------------------------------------------------------------------------------------------------------------------
 Spring AOP
 	- Programowanie aspektowe - aspect-programming
+	- Parametry i wyrażenia w AOP
+		- parametry porad - advice-parameters

@@ -1,5 +1,8 @@
 package pl.drakeprogrammer.aspects;
 
+import java.util.Arrays;
+
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -12,8 +15,9 @@ import org.springframework.stereotype.Component;
 public class LoggerAspect {
 
 	@Before("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
-	public void logInfoBefore() {
-		System.out.println("Log before ");
+	public void logInfoBefore(JoinPoint joinPoint) {
+		Object[] args = joinPoint.getArgs();
+		System.out.printf("Log before %s with args: %s\n", joinPoint.getSignature(), Arrays.toString(args));
 	}
 
 	@After("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
