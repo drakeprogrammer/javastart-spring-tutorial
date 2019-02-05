@@ -16,24 +16,26 @@ import pl.drakeprogrammer.model.Book;
 @Component
 public class LoggerAspect {
 
-	@Before("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
+	@Before("pl.drakeprogrammer.aspects.AspectUtil.allBookRepositoryMethods()")
 	public void logInfoBefore(JoinPoint joinPoint) {
 		Object[] args = joinPoint.getArgs();
 		System.out.printf("Log before %s with args: %s\n", joinPoint.getSignature(), Arrays.toString(args));
 	}
 
-	@After("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
+	@After("pl.drakeprogrammer.aspects.AspectUtil.allBookRepositoryMethods()")
 	public void logInfoAfter() {
-		System.out.println("Method executed ");
+		System.out.println("Method executed tralalalla");
 	}
 
-	@AfterThrowing("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
-	public void logError() {
-		System.out.println("Method finished with error ");
+	@AfterThrowing(pointcut = "pl.drakeprogrammer.aspects.AspectUtil.allBookRepositoryMethods()",
+				   throwing = "error")
+	public void logError(JoinPoint joinPoint, Throwable error) {
+
+		System.out.printf("Method %s finished with error %s", joinPoint.getSignature(), error.getMessage());
 	}
 
-	@AfterReturning(value = "execution(* pl.drakeprogrammer.repository.BookRepository.get(..)) && args(isbn)",
-					returning = "book")
+	@AfterReturning(pointcut = "execution(* pl.drakeprogrammer.repository.BookRepository.get(..)) && args(isbn)",
+					returning = "book", argNames = "joinPoint,isbn,book")
 	public void logSuccess(JoinPoint joinPoint, String isbn, Book book) {
 		if (book != null) {
 			// if you want to use JoinPoint object this object must be first argument in method signature

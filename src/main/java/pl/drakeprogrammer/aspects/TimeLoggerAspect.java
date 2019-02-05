@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TimeLoggerAspect {
 
-	@Around("execution(* pl.drakeprogrammer.repository.BookRepository.*(..))")
+	@Around("pl.drakeprogrammer.aspects.AspectUtil.allBookRepositoryMethods()")
 	public Object measureExecTime(ProceedingJoinPoint pjp) throws Throwable {
 		Instant before = Instant.now();
 		// @Before

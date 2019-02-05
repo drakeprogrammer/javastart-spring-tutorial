@@ -23,6 +23,12 @@ public class SpringDiApplication {
 		Book book = repo.get("1234567890123");
 		System.out.println(book);
 
+		try {
+			repo.get(null);
+		} catch (Exception ex) {
+			//			System.out.println(ex.getMessage());
+		}
+
 		ctx.close();
 	}
 }
