@@ -1,8 +1,9 @@
 package pl.drakeprogrammer.repository;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.PersistenceUnit;
 
 import org.springframework.stereotype.Component;
 
@@ -11,31 +12,23 @@ import pl.drakeprogrammer.model.Book;
 @Component
 public class BookRepository {
 
-	private List<Book> books;
+	@PersistenceUnit
+	private EntityManagerFactory emFactory;
 
-	public BookRepository() {
-		books = new LinkedList<>();
+	public void save(Book book) {
+		EntityManager entityManager = emFactory.createEntityManager();
+		EntityTransaction tx = entityManager.getTransaction();
+		tx.begin();
+		entityManager.persist(book);
+		tx.commit();
+		entityManager.close();
 	}
 
-	public Book get(String isbn) {
-		if (isbn == null || (isbn.length() != 13)) {
-			throw new IllegalArgumentException("You have to provide valid ISBN number");
-		}
-		Book find = books.stream().filter(b -> isbn.equals(b.getIsbn())).findFirst().get();
-		randomPause(300);
-		return find;
+	public Book findById(Long id) {
+		EntityManager entityManager = emFactory.createEntityManager();
+		Book book = entityManager.find(Book.class, id);
+		entityManager.close();
+		return book;
 	}
 
-	public void add(Book book) {
-		books.add(book);
-		randomPause(1000);
-	}
-
-	private void randomPause(int maxTime) {
-		try {
-			Thread.sleep(new Random().nextInt(maxTime));
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 }

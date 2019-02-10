@@ -34,3 +34,6 @@ Spring AOP
 		- parametry porad - advice-parameters
 		- przechwytywanie zwracanych obiektów - catch-returning-objects
 		- przechwytywanie wyjątkówa i wspołdzielenie definciji punktów przecięcia - catch-exceptions-and-pointcut-share
+------------------------------------------------------------------------------------------------------------------------
+JPA - konfiguracja
+	- podstawowa-konfiguracja - jpa-base-configuration
