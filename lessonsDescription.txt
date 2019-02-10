@@ -39,3 +39,4 @@ JPA - konfiguracja
 	- podstawowa-konfiguracja - jpa-base-configuration
 	- Pule połączeń i konfiguracja Java - jpa-connection-pools-and-java-configuration
 		- Przeniesienie konfiguracji persistence.xml do Javy - jpa-move-persistence-xml-configuration-to-java
+		- Dodanie obsługi puli połączeń - jpa-add-connection-pool

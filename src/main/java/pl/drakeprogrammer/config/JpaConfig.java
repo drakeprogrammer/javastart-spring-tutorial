@@ -3,6 +3,9 @@ package pl.drakeprogrammer.config;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.sql.DataSource;
+
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -14,17 +17,15 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 public class JpaConfig {
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean createEMF(JpaVendorAdapter jpaVendorAdapter) {
+	public LocalContainerEntityManagerFactoryBean createEMF(JpaVendorAdapter jpaVendorAdapter, DataSource dataSource) {
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
-		Map<String, String> properties = new HashMap<>();
-		properties.put("javax.persistence.jdbc.url", "jdbc:mysql://localhost:3306/spring_framework");
-		properties.put("javax.persistence.jdbc.user", "root");
-		properties.put("javax.persistence.jdbc.password", "root");
-		properties.put("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");
-		properties.put("javax.persistence.schema-generation.database.action", "drop-and-create");
-
 		emf.setPersistenceUnitName("spring-jpa-pu");
+
+		Map<String, String> properties = new HashMap<>();
+		properties.put("javax.persistence.schema-generation.database.action", "drop-and-create");
 		emf.setJpaPropertyMap(properties);
+
+		emf.setDataSource(dataSource);
 		emf.setJpaVendorAdapter(jpaVendorAdapter);
 		emf.setPackagesToScan("pl.drakeprogrammer.model");
 
@@ -37,5 +38,16 @@ public class JpaConfig {
 		hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
 		hibernateJpaVendorAdapter.setShowSql(true);
 		return hibernateJpaVendorAdapter;
+	}
+
+	@Bean
+	public DataSource createDataSource() {
+		BasicDataSource basicDataSource = new BasicDataSource();
+		basicDataSource.setUrl("jdbc:mysql://localhost:3306/spring_framework");
+		basicDataSource.setUsername("root");
+		basicDataSource.setPassword("root");
+		basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		basicDataSource.setInitialSize(5);
+		return basicDataSource;
 	}
 }
