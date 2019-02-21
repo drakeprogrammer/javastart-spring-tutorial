@@ -40,3 +40,6 @@ JPA - konfiguracja
 	- Pule połączeń i konfiguracja Java - jpa-connection-pools-and-java-configuration
 		- Przeniesienie konfiguracji persistence.xml do Javy - jpa-move-persistence-xml-configuration-to-java
 		- Dodanie obsługi puli połączeń - jpa-add-connection-pool
+------------------------------------------------------------------------------------------------------------------------
+Spring Data
+	- Konfiguracja Spring Data - spring-data-configuration
