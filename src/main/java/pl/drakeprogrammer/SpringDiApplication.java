@@ -16,8 +16,10 @@ public class SpringDiApplication {
 
 		BookRepository bookRepository = ctx.getBean(BookRepository.class);
 		Book book = new Book("1234567890123", "Pierwsza", "Pierwszy autor");
-		bookRepository.save(book);
+		Book book1  = bookRepository.save(book);
+		book  = bookRepository.save(book);
 
+		System.out.println(book1);
 		System.out.println(bookRepository.findById(book.getId()));
 
 		ctx.close();

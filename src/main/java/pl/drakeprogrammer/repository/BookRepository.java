@@ -15,13 +15,14 @@ public class BookRepository {
 	@PersistenceUnit
 	private EntityManagerFactory emFactory;
 
-	public void save(Book book) {
+	public Book save(Book book) {
 		EntityManager entityManager = emFactory.createEntityManager();
 		EntityTransaction tx = entityManager.getTransaction();
 		tx.begin();
-		entityManager.persist(book);
+		entityManager.merge(book);
 		tx.commit();
 		entityManager.close();
+		return book;
 	}
 
 	public Book findById(Long id) {
