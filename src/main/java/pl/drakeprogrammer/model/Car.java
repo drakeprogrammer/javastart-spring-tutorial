@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name = "Car.findByNameCustom", query = "SELECT c FROM Car c WHERE c.name = :name")
 public class Car {
 
 	@Id
@@ -15,7 +17,7 @@ public class Car {
 	private String brand;
 	private Double price;
 
-	Car() {
+	public Car() {
 	}
 
 	public Car(String name, String brand, Double price) {

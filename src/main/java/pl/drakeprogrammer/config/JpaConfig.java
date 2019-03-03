@@ -30,6 +30,7 @@ public class JpaConfig {
 
 		Map<String, String> properties = new HashMap<>();
 		properties.put("javax.persistence.schema-generation.database.action", "drop-and-create");
+		properties.put("javax.persistence.jdbc.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		emf.setJpaPropertyMap(properties);
 
 		emf.setDataSource(dataSource);
@@ -50,10 +51,10 @@ public class JpaConfig {
 	@Bean
 	public DataSource dataSource() {
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setUrl("jdbc:mysql://localhost:3306/spring_framework");
+		basicDataSource.setUrl("jdbc:mysql://localhost:3306/spring_framework?useSSL=false");
 		basicDataSource.setUsername("root");
 		basicDataSource.setPassword("root");
-		basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		basicDataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		basicDataSource.setInitialSize(5);
 		return basicDataSource;
 	}

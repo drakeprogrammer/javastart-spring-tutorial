@@ -43,3 +43,4 @@ JPA - konfiguracja
 ------------------------------------------------------------------------------------------------------------------------
 Spring Data
 	- Konfiguracja Spring Data - spring-data-configuration
+	- Szczegołowe zapytania i Adnotacje Query - spring-data-complex-query-and-query-annotation
