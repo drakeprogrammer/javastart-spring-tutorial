@@ -1,52 +1,22 @@
 package pl.drakeprogrammer;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import javax.servlet.ServletRegistration.Dynamic;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
-import pl.drakeprogrammer.model.Car;
-import pl.drakeprogrammer.repository.CarRepository;
+public class SpringDiApplication implements WebApplicationInitializer {
 
-@Configuration
-@ComponentScan
-public class SpringDiApplication {
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
+		ctx.setServletContext(servletContext);
 
-	public static void main(String[] args) {
-		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringDiApplication.class);
-
-		List<Car> cars = new ArrayList<>();
-		cars.add(new Car("A4", "Audi", 49000.0));
-		cars.add(new Car("A5", "Audi", 67000.0));
-		cars.add(new Car("Auris", "Toyota", 35000.0));
-		cars.add(new Car("Insignia", "Opel", 29500.0));
-		cars.add(new Car("A8", "Audi", 28000.0));
-		cars.add(new Car("Corolla", "Toyota", 31000.0));
-		cars.add(new Car("Vectra", "Opel", 29500.0));
-		cars.add(new Car("Astra", "Opel", 29500.0));
-
-		CarRepository carRepository = ctx.getBean(CarRepository.class);
-
-		cars.forEach(carRepository::save);
-
-		Car car1 = carRepository.findById(1L).get();
-		carRepository.delete(car1);
-
-		carRepository.findAllBrandOrById(null).forEach(System.out::println);
-
-		long id = 2L;
-		System.out.println("Give id = " + id);
-		carRepository.findAllBrandOrById(id).forEach(System.out::println);
-
-		System.out.println("Find by brand custom dynamic query: ");
-		carRepository.findByBrandCustom("Opel").forEach(System.out::println);
-
-		System.out.println("Find by name named query: "); // you should not use it
-		carRepository.findByNameCustom("Auri88s").forEach(System.out::println);
-
-
-		ctx.close();
+		DispatcherServlet dispatcherServlet = new DispatcherServlet(ctx);
+		Dynamic dynamic = servletContext.addServlet("dispatcher", dispatcherServlet);
+		dynamic.addMapping("/");
 	}
 }
