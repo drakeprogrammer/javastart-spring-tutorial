@@ -49,3 +49,4 @@ Spring MVC
 	- Podstawowa konfiguracja Web
 		- spring-mvc-base-web-configuration-DispatcherServlet
 		- spring-mvc-base-web-configuration-AbstractAnnotationConfigDispatcherServletInitializer
+		- spring-mvc-base-web-configuration-add-jpg-and-DefaultServletHandlerConfigurer-InternalResourceViewResolver
