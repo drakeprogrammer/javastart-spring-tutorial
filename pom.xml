@@ -39,7 +39,7 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>1.6.0</version>
 				<configuration>
-					<mainClass>pl.drakeprogrammer.SpringDiApplication</mainClass>
+					<mainClass>pl.drakeprogrammer.WebConfig</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>

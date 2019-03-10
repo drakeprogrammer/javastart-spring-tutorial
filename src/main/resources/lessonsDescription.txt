@@ -48,3 +48,4 @@ Spring Data
 Spring MVC
 	- Podstawowa konfiguracja Web
 		- spring-mvc-base-web-configuration-DispatcherServlet
+		- spring-mvc-base-web-configuration-AbstractAnnotationConfigDispatcherServletInitializer
