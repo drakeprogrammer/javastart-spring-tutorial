@@ -50,3 +50,5 @@ Spring MVC
 		- spring-mvc-base-web-configuration-DispatcherServlet
 		- spring-mvc-base-web-configuration-AbstractAnnotationConfigDispatcherServletInitializer
 		- spring-mvc-base-web-configuration-add-jpg-and-DefaultServletHandlerConfigurer-InternalResourceViewResolver
+	- Konfiguracja Spring MVC w Sping Boot  - do lekcji nie trzeba było nic kodować
+	- Obsługa żądań i parametrów - handling-of-requests-and-parameters
