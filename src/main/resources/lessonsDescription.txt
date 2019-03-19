@@ -56,3 +56,5 @@ Spring MVC
 	- Obsługa żądań i parametrów - handling-of-requests-and-parameters
 
 	- Zasięg komponentów w Spring MVC - components-scope-in-spring-mvc
+
+	- Sterowanie żądaniami - control-of-requests
