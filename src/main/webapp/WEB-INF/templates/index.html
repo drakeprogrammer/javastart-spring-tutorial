@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Spring CMS</title>
+</head>
+<body>
+<h1 th:text="${helloMessage}"></h1>
+<form th:action="@{/add}" method="post">
+	<p>
+		<label>
+			<input type="text" th:field="${formArticle.title}" />
+		</label>
+	</p>
+	<p>
+		<label>
+			<textarea th:field="${formArticle.content}"></textarea>
+		</label>
+	</p>
+	<p>
+		<label>
+			<input type="text" th:field="${formArticle.tags}" />
+		</label>
+	</p>
+	<p><input type="submit" value="Add" /></p>
+</form>
+</body>
+</html>

@@ -1,23 +1,18 @@
 package pl.drakeprogrammer.model;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Article {
 
 	private String title;
 	private String content;
-	private List<String> tags;
+	private String tags;
+
+	public Article() {
+	}
 
 	public Article(String title, String content, String tags) {
 		this.title = title;
 		this.content = content;
-		if (tags != null && !tags.isEmpty()) {
-			this.tags = Arrays.asList(tags.split(","));
-		} else {
-			this.tags = Collections.emptyList();
-		}
+		this.tags = tags;
 	}
 
 	public String getTitle() {
@@ -36,11 +31,11 @@ public class Article {
 		this.content = content;
 	}
 
-	public List<String> getTags() {
+	public String getTags() {
 		return tags;
 	}
 
-	public void setTags(List<String> tags) {
+	public void setTags(String tags) {
 		this.tags = tags;
 	}
 

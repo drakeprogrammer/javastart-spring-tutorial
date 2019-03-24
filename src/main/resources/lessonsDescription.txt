@@ -60,3 +60,5 @@ Spring MVC
 	- Sterowanie żądaniami - control-of-requests
 
 	- MVC + JSP + JSTL - mvc-plus-jsp-plus-jstl
+
+	- MVC + Thymeleaf - MVC-plus-Thymeleaf
